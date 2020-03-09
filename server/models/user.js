@@ -55,16 +55,20 @@ userSchema.methods = {
   encryptPassword: function(password) {
     if (!password) return "";
     try {
-      return crypto
-        .createHmac("sha1", this.salt)
-        .update(password)
-        .digest("hex");
+      return (
+        crypto
+          //sha1 is a hashing algorythm from crypto
+          .createHmac("sha1", this.salt)
+          .update(password)
+          .digest("hex")
+      );
     } catch (err) {
       return "";
     }
   },
 
   makeSalt: function() {
+    //makes a hashed string
     return Math.round(new Date().valueOf() * Math.random()) + "";
   }
 };
