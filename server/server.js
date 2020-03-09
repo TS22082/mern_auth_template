@@ -9,8 +9,8 @@ if (process.env.NODE_ENV === "production") {
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const auth = require("./routes/auth-routes");
-app.use("/auth", auth);
+const authRoutes = require("./routes/auth-routes");
+app.use("/auth", authRoutes);
 
 app.listen(PORT, () => {
   console.log(`listening at http://localhost:${PORT}`);
