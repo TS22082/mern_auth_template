@@ -24,6 +24,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+// set cors rules if in developement mode
 if (process.env.NODE_ENV === "development") {
   app.use(cors({ origin: `http://localhost:3000` }));
 }
